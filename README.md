@@ -1,1 +1,1 @@
-# PIC-Educacao-Financeira
+# PIC 2024 - Educacao Financeira
