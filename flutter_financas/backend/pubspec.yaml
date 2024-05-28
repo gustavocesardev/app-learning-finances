@@ -1,5 +1,0 @@
-name: backend
-description: "Backend em Dart para a aplicação Flutter"
-
-environment:
-  sdk: '>=3.3.1 <4.0.0'
