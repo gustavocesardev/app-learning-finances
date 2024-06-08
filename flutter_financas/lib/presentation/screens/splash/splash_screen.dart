@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Learning Finances',
       home: Scaffold(
         backgroundColor: ColorConstants.primaryColor,
@@ -20,14 +20,21 @@ class SplashScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Center(
-                  child: SizedBox(
+                  child: GestureDetector(
+                    onTap: () {
+                      // Navegação através de rotas nomeadas
+                      Navigator.pushNamed(context, '/login'
+                      );
+                    },
+                    child: const SizedBox(
                     width: 275, 
                     height: 275,
                     child: Image(
                       image: AssetImage('assets/images/logo.png'),
+                      ),
                     ),
                   ),
-                )
+                ),
               ],
             )
           ],

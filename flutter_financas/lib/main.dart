@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_financas/presentation/screens/login/login_screen.dart';
 import 'package:flutter_financas/presentation/screens/splash/splash_screen.dart';
 
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
+        LoginScreen.routeName: (context) => const LoginScreen(),
       },
     );
   }
