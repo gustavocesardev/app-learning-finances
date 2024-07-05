@@ -18,6 +18,7 @@ class Input extends StatelessWidget {
     return TextField(
       obscureText: passwordType,
       decoration: InputDecoration(
+        contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),   
         hintText: placeholderText,
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),

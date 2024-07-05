@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_financas/presentation/screens/login/login_screen.dart';
 import 'package:flutter_financas/presentation/screens/splash/splash_screen.dart';
+import 'package:flutter_financas/presentation/screens/login/login_screen.dart';
+import 'package:flutter_financas/presentation/screens/login/register_screen.dart';
 
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
@@ -9,7 +10,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   const MyApp({super.key});
 
   @override
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
+        RegisterScreen.routeName: (context) => const RegisterScreen()
       },
     );
   }
