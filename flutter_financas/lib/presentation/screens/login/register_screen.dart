@@ -9,6 +9,7 @@ import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/text.dart';
 
 class RegisterScreen extends StatelessWidget {
+  
   static const routeName = '/register';
 
   const RegisterScreen({super.key});
@@ -87,8 +88,10 @@ class RegisterScreen extends StatelessWidget {
                   children: [
                     Container(
                       margin: const EdgeInsets.all(10.0),
-                      child: const SizedBox(
-                          width: 350, child: Button(textButton: 'Cadastrar')),
+                      child: Button(
+                        onPressed: () {},
+                        textButton: 'Cadastrar'
+                      )
                     ),
                   ],
                 ),

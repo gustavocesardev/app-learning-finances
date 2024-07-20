@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_financas/presentation/screens/home/home_screen.dart';
 import 'package:flutter_financas/presentation/screens/login/register_screen.dart';
 
 // Importando widgets
@@ -9,6 +9,7 @@ import 'package:flutter_financas/presentation/widgets/text.dart';
 import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 
 class LoginScreen extends StatelessWidget {
+
   static const routeName = '/login';
 
   const LoginScreen({super.key});
@@ -73,8 +74,13 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Container(
                       margin: const EdgeInsets.all(10.0),
-                      child: const SizedBox(
-                          width: 350, child: Button(textButton: 'Login')),
+                      child: Button(
+                        onPressed: () {
+                          // Navegação através de rotas nomeadas
+                          Navigator.pushNamed(context, HomeScreen.routeName);
+                        },
+                        textButton: 'Login',
+                      ),
                     ),
                   ],
                 ),
