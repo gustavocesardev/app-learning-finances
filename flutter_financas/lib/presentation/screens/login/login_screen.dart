@@ -74,12 +74,15 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Container(
                       margin: const EdgeInsets.all(10.0),
-                      child: Button(
-                        onPressed: () {
-                          // Navegação através de rotas nomeadas
-                          Navigator.pushNamed(context, HomeScreen.routeName);
-                        },
+                      child: SizedBox(
+                        width: 350,
+                        child: Button(
+                          onPressed: () {
+                            // Navegação através de rotas nomeadas
+                            Navigator.pushNamed(context, HomeScreen.routeName);
+                          },
                         textButton: 'Login',
+                        )
                       ),
                     ),
                   ],

@@ -88,10 +88,13 @@ class RegisterScreen extends StatelessWidget {
                   children: [
                     Container(
                       margin: const EdgeInsets.all(10.0),
-                      child: Button(
-                        onPressed: () {},
-                        textButton: 'Cadastrar'
-                      )
+                      child: SizedBox(
+                        width: 350,
+                        child: Button(
+                          onPressed: () {},
+                          textButton: 'Cadastrar',
+                        )
+                      ),
                     ),
                   ],
                 ),

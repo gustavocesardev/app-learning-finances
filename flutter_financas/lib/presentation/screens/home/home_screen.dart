@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_financas/presentation/screens/tema/tema_screen.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
 import 'package:flutter_financas/presentation/widgets/app_bar.dart';
@@ -166,7 +167,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: LargeButtonWithIcon(
                             textButton: 'GERENCIAR TEMAS',
                             icon: Icons.bookmark_added,
-                            onPressed: () {}
+                            onPressed: () {
+                              // Navegação através de rotas nomeadas
+                              Navigator.pushNamed(context, TemaScreen.routeName);
+                            }
                           ),
                         ),
                       )
