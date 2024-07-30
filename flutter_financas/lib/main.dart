@@ -3,6 +3,8 @@ import 'package:flutter_financas/presentation/screens/home/home_screen.dart';
 import 'package:flutter_financas/presentation/screens/splash/splash_screen.dart';
 import 'package:flutter_financas/presentation/screens/login/login_screen.dart';
 import 'package:flutter_financas/presentation/screens/login/register_screen.dart';
+import 'package:flutter_financas/presentation/screens/tema/tema_incluir.dart';
+import 'package:flutter_financas/presentation/screens/tema/tema_listar_screen.dart';
 import 'package:flutter_financas/presentation/screens/tema/tema_screen.dart';
 
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
@@ -27,7 +29,9 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName: (context) => const LoginScreen(),
         RegisterScreen.routeName: (context) => const RegisterScreen(),
         HomeScreen.routeName: (context) => const HomeScreen(),
-        TemaScreen.routeName: (context) => const TemaScreen()
+        TemaScreen.routeName: (context) => const TemaScreen(),
+        TemaListagemScreen.routeName: (context) => const TemaListagemScreen(),
+        TemaInclusaoScreen.routeName: (context) => const TemaInclusaoScreen()
       },
     );
   }

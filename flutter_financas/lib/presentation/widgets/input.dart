@@ -21,15 +21,23 @@ class Input extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),   
         hintText: placeholderText,
         border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(Radius.circular(7.5)),
         ),
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(
             color: ColorConstants.primaryColor,
             width: 1.5, 
           ),
+          borderRadius: BorderRadius.all(Radius.circular(7.5)),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ColorConstants.secondColor,
+            width: 1.5, 
+          ),
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
+        hintStyle: const TextStyle(color: ColorConstants.secondColor)
       ),
     );
   }

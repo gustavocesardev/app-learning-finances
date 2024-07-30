@@ -63,16 +63,17 @@ class ShortButton extends StatelessWidget {
 }
 
 class LargeButtonWithIcon extends StatelessWidget {
-
   final String textButton;
+  final double fontSize;
   final VoidCallback onPressed;
-  final IconData icon; 
+  final IconData icon;
 
   const LargeButtonWithIcon({
     super.key,
     required this.textButton,
     required this.onPressed,
-    required this.icon, 
+    required this.icon,
+    this.fontSize = 17
   });
 
   @override
@@ -88,17 +89,21 @@ class LargeButtonWithIcon extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            textButton,
-            style: const TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+          Expanded(
+            child: Text(
+              textButton,
+              style: TextStyle(
+                fontSize: fontSize,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+              softWrap: true, // Habilita a quebra automática de linha
+              overflow: TextOverflow.visible, // Garante que o texto seja exibido completo, mesmo que ultrapasse o limite
             ),
           ),
           Icon(
             icon,
-            color: Colors.white, 
+            color: Colors.white,
             size: 50,
           ),
         ],
@@ -106,3 +111,4 @@ class LargeButtonWithIcon extends StatelessWidget {
     );
   }
 }
+

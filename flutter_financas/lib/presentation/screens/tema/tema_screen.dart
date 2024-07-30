@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_financas/presentation/screens/tema/tema_incluir.dart';
+import 'package:flutter_financas/presentation/screens/tema/tema_listar_screen.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
+
 import 'package:flutter_financas/presentation/widgets/app_bar.dart';
 import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/semanas.dart';
 
 class TemaScreen extends StatefulWidget {
-
   static const routeName = '/tema';
 
   const TemaScreen({super.key});
@@ -110,7 +112,10 @@ class _TemaScreenState extends State<TemaScreen> {
                           child: LargeButtonWithIcon(
                             textButton: 'ADICIONAR NOVO TEMA',
                             icon: Icons.bookmark_add,
-                            onPressed: () {}
+                            onPressed: () {
+                              // Navegação através de rotas nomeadas
+                              Navigator.pushNamed(context, TemaInclusaoScreen.routeName);
+                            }
                           ),
                         ),
                       )
@@ -127,7 +132,10 @@ class _TemaScreenState extends State<TemaScreen> {
                           child: LargeButtonWithIcon(
                             textButton: 'LISTAGEM DE TEMAS',
                             icon: Icons.menu,
-                            onPressed: () {}
+                            onPressed: () {
+                              // Navegação através de rotas nomeadas
+                              Navigator.pushNamed(context, TemaListagemScreen.routeName);
+                            }
                           ),
                         ),
                       )
