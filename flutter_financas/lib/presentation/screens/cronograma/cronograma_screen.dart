@@ -1,37 +1,35 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_financas/presentation/screens/tema/tema_incluir_screen.dart';
-import 'package:flutter_financas/presentation/screens/tema/tema_listar_screen.dart';
+import 'package:flutter_financas/presentation/screens/cronograma/calendario_screen.dart';
+import 'package:flutter_financas/presentation/screens/desafio/desafio_incluir_screen.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
-
 import 'package:flutter_financas/presentation/widgets/app_bar.dart';
 import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/list.dart';
 
-class TemaScreen extends StatefulWidget {
-  static const routeName = '/tema';
+class CronogramaScreen extends StatefulWidget {
+  static const routeName = '/cronograma';
 
-  const TemaScreen({super.key});
+  const CronogramaScreen({super.key});
 
   @override
-  State<TemaScreen> createState() => _TemaScreenState();
+  State<CronogramaScreen> createState() => _CronogramaScreenState();
 }
 
-class _TemaScreenState extends State<TemaScreen> {
+class _CronogramaScreenState extends State<CronogramaScreen> {
 
-  // Lista de temas e suas respectivas semanas
-  final List<Map<String, dynamic>> temas = [
-    {'tema': 'INVESTIMENTOS E MERCADO FINANCEIRO', 'semana': '23'},
-    {'tema': 'PLANEJAMENTO E APOSENTADORIA', 'semana': '24'},
-    {'tema': 'ORCAMENTO PESSOAL', 'semana': '25'},
+  // Lista de cronogramas e suas respectivas semanas
+  final List<Map<String, dynamic>> desafios = [
+    {'desafio': 'AVALIAÇÃO DE BENEFÍCIOS DE SEGUROS', 'dificuldade': 'INTERMEDIÁRIO'},
+    {'desafio': 'COMPARAÇÃO DE PLANOS DE SEGUROS', 'dificuldade': 'FÁCIL'},
+    {'desafio': 'AVALIAÇÃO DE NECESSIDADES DE SEGURO', 'dificuldade': 'DIFÍCIL'},
   ];
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: const CustomAppBar(title: 'Temas',),
+        appBar: const CustomAppBar(title: 'Cronograma'),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -47,9 +45,9 @@ class _TemaScreenState extends State<TemaScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              margin: const EdgeInsets.all(15),
+                              margin: const EdgeInsets.only(top: 5, right: 15, bottom: 15, left: 15),
                               child: const Text(
-                                'PRÓXIMOS TEMAS PROGRAMADOS',
+                                'DESAFIOS DA SEMANA',
                                 style: TextStyle(
                                   color: ColorConstants.thirdColor,
                                   fontWeight: FontWeight.bold,
@@ -67,11 +65,11 @@ class _TemaScreenState extends State<TemaScreen> {
                   ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: temas.length,
+                    itemCount: desafios.length,
                     itemBuilder: (context, index) {
                       return SimpleList(
-                        title: temas[index]['tema'],
-                        subtitle: 'SEMANA ${temas[index]['semana']}',
+                        title: desafios[index]['desafio'],
+                        subtitle: desafios[index]['dificuldade'],
                       );
                     },
                   ),
@@ -79,7 +77,7 @@ class _TemaScreenState extends State<TemaScreen> {
                     margin: const EdgeInsets.all(10.0),
                     child: ShortButton(
                       onPressed: () {},
-                      textButton: 'VISUALIZAR PROGRAMAÇÃO COMPLETA'
+                      textButton: 'VISUALIZAR TODOS OS DESAFIOS DA SEMANA'
                     )
                   ),
                 ],
@@ -92,7 +90,7 @@ class _TemaScreenState extends State<TemaScreen> {
                       Container(
                         margin: const EdgeInsets.only(top: 10, bottom: 10),
                         child: const Text(
-                          'GERENCIAR TEMAS',
+                          'GERENCIAR CRONOGRAMAS',
                           style: TextStyle(
                             color: ColorConstants.primaryColor,
                             fontSize: 16,
@@ -111,11 +109,11 @@ class _TemaScreenState extends State<TemaScreen> {
                           width: 375,
                           height: 75,
                           child: LargeButtonWithIcon(
-                            textButton: 'ADICIONAR NOVO TEMA',
+                            textButton: 'PROGRAMAR NOVA SEMANA',
                             icon: Icons.bookmark_add,
                             onPressed: () {
                               // Navegação através de rotas nomeadas
-                              Navigator.pushNamed(context, TemaInclusaoScreen.routeName);
+                              
                             }
                           ),
                         ),
@@ -131,11 +129,31 @@ class _TemaScreenState extends State<TemaScreen> {
                           width: 375,
                           height: 75,
                           child: LargeButtonWithIcon(
-                            textButton: 'LISTAGEM DE TEMAS',
-                            icon: Icons.menu,
+                            textButton: 'ADICIONAR NOVO DESAFIO',
+                            icon: Icons.bookmark_add,
                             onPressed: () {
                               // Navegação através de rotas nomeadas
-                              Navigator.pushNamed(context, TemaListagemScreen.routeName);
+                              Navigator.pushNamed(context, DesafioIncluirScreen.routeName);
+                            }
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(top: 10, bottom: 10),
+                        child: SizedBox(
+                          width: 375,
+                          height: 75,
+                          child: LargeButtonWithIcon(
+                            textButton: 'CALENDÁRIO',
+                            icon: Icons.calendar_month,
+                            onPressed: () {
+                              // Navegação através de rotas nomeadas
+                              Navigator.pushNamed(context, CalendarioScreen.routeName);
                             }
                           ),
                         ),

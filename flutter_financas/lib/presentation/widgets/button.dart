@@ -36,7 +36,14 @@ class ShortButton extends StatelessWidget {
   final String textButton;
   final VoidCallback onPressed;
 
-  const ShortButton({super.key, required this.textButton, required this.onPressed});
+  final Color buttonColor;
+
+  const ShortButton({
+    super.key,
+    required this.textButton,
+    required this.onPressed,
+    this.buttonColor = ColorConstants.largeButtonColor
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +52,7 @@ class ShortButton extends StatelessWidget {
         shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
         padding: const EdgeInsets.only(top: 5, bottom: 5),
         elevation: 0,
-        backgroundColor: ColorConstants.largeButtonColor,
+        backgroundColor: buttonColor,
       ),
       onPressed: onPressed,
       child: Center(

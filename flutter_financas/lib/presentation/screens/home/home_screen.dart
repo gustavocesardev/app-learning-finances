@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_financas/presentation/screens/cronograma/cronograma_screen.dart';
 
 import 'package:flutter_financas/presentation/screens/tema/tema_screen.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
@@ -151,7 +152,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: LargeButtonWithIcon(
                             textButton: 'GERENCIAR CRONOGRAMA',
                             icon: Icons.schedule,
-                            onPressed: () {}
+                            onPressed: () {
+                              // Navegação através de rotas nomeadas
+                              Navigator.pushNamed(context, CronogramaScreen.routeName);
+                            }
                           ),
                         ),
                       )
