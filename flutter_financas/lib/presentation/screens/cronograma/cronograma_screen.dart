@@ -157,7 +157,7 @@ class _CronogramaScreenState extends State<CronogramaScreen> {
                             }
                           ),
                         ),
-                      )
+                      ),
                     ],
                   )
                 ],

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_financas/presentation/screens/cronograma/calendario_screen.dart';
 import 'package:flutter_financas/presentation/screens/cronograma/cronograma_screen.dart';
+import 'package:flutter_financas/presentation/screens/desafio/conteudo/desafio_incluir_relacionar_colunas.dart';
 import 'package:flutter_financas/presentation/screens/desafio/desafio_incluir_screen.dart';
+import 'package:flutter_financas/presentation/screens/desafio/desafio_incluir_conteudo_screen.dart';
 
 import 'package:flutter_financas/presentation/screens/home/home_screen.dart';
 import 'package:flutter_financas/presentation/screens/splash/splash_screen.dart';
@@ -46,7 +48,9 @@ class MyApp extends StatelessWidget {
         CronogramaScreen.routeName: (context) => const CronogramaScreen(),
         CalendarioScreen.routeName: (context) => const CalendarioScreen(),
 
-        DesafioIncluirScreen.routeName: (context) => const DesafioIncluirScreen()
+        DesafioIncluirScreen.routeName: (context) => const DesafioIncluirScreen(),
+        DesafioConteudo.routeName: (context) => const DesafioConteudo(),
+        IncluirDesafioColunas.routeName: (context) => const IncluirDesafioColunas()
       },
     );
   }
