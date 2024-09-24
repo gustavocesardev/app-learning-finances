@@ -1,38 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_financas/presentation/screens/login/login_screen.dart';
-import 'package:flutter_financas/presentation/themes/colors_constants.dart';
-import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 
-// Importando widgets
+import 'package:flutter_financas/presentation/screens/home/home.dart';
+import 'package:flutter_financas/presentation/screens/login/register.dart';
+
 import 'package:flutter_financas/presentation/widgets/input.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/text.dart';
+import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 
-class RegisterScreen extends StatelessWidget {
-  
-  static const routeName = '/register';
+class Login extends StatelessWidget {
+  static const routeName = '/login';
 
-  const RegisterScreen({super.key});
+  const Login({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  margin: const EdgeInsets.all(30.0),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      TextTitle(text: 'CRIE SUA CONTA', color: ColorConstants.primaryColor),
-                      TextTitle(text: 'AGORA!', color: ColorConstants.secondColor)
-                    ],
-                  ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Center(
+                      child: SizedBox(
+                        width: 275,
+                        height: 275,
+                        child: Image(
+                          image: AssetImage('assets/images/logo_second.png'),
+                        ),
+                      ),
+                    )
+                  ]
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -43,7 +45,7 @@ class RegisterScreen extends StatelessWidget {
                         child: const SizedBox(
                           width: 350,
                           child: Input(
-                            placeholderText: 'Informe o e-mail',
+                            placeholderText: 'Informe seu e-mail',
                           ),
                         ),
                       ),
@@ -59,23 +61,7 @@ class RegisterScreen extends StatelessWidget {
                         child: const SizedBox(
                           width: 350,
                           child: Input(
-                            placeholderText: 'Informe o username',
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Center(
-                      child: Container(
-                        margin: const EdgeInsets.all(10.0),
-                        child: const SizedBox(
-                          width: 350,
-                          child: Input(
-                            placeholderText: 'Informe a senha',
+                            placeholderText: 'Informe sua senha',
                             passwordType: true,
                           ),
                         ),
@@ -91,8 +77,11 @@ class RegisterScreen extends StatelessWidget {
                       child: SizedBox(
                         width: 350,
                         child: Button(
-                          onPressed: () {},
-                          textButton: 'Cadastrar',
+                          onPressed: () {
+                            // Navegação através de rotas nomeadas
+                            Navigator.pushNamed(context, Home.routeName);
+                          },
+                        textButton: 'Login',
                         )
                       ),
                     ),
@@ -106,14 +95,10 @@ class RegisterScreen extends StatelessWidget {
                       child: GestureDetector(
                         onTap: () {
                           // Navegação através de rotas nomeadas
-                          Navigator.pushNamed(
-                            context, LoginScreen.routeName
-                          );
+                          Navigator.pushNamed(context, Register.routeName);
                         },
                         child: const Center(
-                          child: TextLink(
-                            text: 'Já possuí conta? Faça seu login agora!',
-                          ),
+                          child: TextLink(text: 'Cadastre-se agora'),
                         ),
                       ),
                     ),

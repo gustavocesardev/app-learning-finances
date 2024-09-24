@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
 class SimpleList extends StatelessWidget {
+
   final String title;
   final String subtitle;
   final double fontSize;
@@ -58,7 +59,8 @@ class SimpleList extends StatelessWidget {
   }
 }
 
-class Calendario extends StatelessWidget {
+class CalendarioList extends StatelessWidget {
+  
   final String semana;
   final String periodo;
   final String tema;
@@ -66,7 +68,7 @@ class Calendario extends StatelessWidget {
 
   final VoidCallback onPressed;
 
-  const Calendario({
+  const CalendarioList({
     super.key,
     required this.semana,
     required this.periodo,

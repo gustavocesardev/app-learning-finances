@@ -70,6 +70,7 @@ class ShortButton extends StatelessWidget {
 }
 
 class LargeButtonWithIcon extends StatelessWidget {
+
   final String textButton;
   final double fontSize;
   final VoidCallback onPressed;
@@ -104,8 +105,8 @@ class LargeButtonWithIcon extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
-              softWrap: true, // Habilita a quebra automática de linha
-              overflow: TextOverflow.visible, // Garante que o texto seja exibido completo, mesmo que ultrapasse o limite
+              softWrap: true, 
+              overflow: TextOverflow.visible,
             ),
           ),
           Icon(

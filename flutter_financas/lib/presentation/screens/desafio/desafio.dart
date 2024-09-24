@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_financas/presentation/screens/desafio/desafio_incluir_conteudo_screen.dart';
+import 'package:flutter_financas/presentation/screens/desafio/minigames/colunas_relacionadas.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
 import 'package:flutter_financas/presentation/widgets/app_bar.dart';
@@ -8,16 +8,17 @@ import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/input.dart';
 
-class DesafioIncluirScreen extends StatefulWidget {
+class Desafio extends StatefulWidget {
   static const routeName = '/desafio/incluir';
 
-  const DesafioIncluirScreen({super.key});
+  const Desafio({super.key});
 
   @override
-  State<DesafioIncluirScreen> createState() => _DesafioIncluirScreenState();
+  State<Desafio> createState() => _DesafioState();
 }
 
-class _DesafioIncluirScreenState extends State<DesafioIncluirScreen> {
+class _DesafioState extends State<Desafio> {
+  
   // Lista de dificuldades
   final List<Map<String, dynamic>> dificuldades = [
     {"tipo": "Fácil", "nivel": "1"},
@@ -185,7 +186,7 @@ class _DesafioIncluirScreenState extends State<DesafioIncluirScreen> {
                             value: semanaSelected,
                             underline: Container(
                               height: 1,
-                              color: ColorConstants.primaryColor, // Altere esta cor para a que você deseja
+                              color: ColorConstants.primaryColor,
                             ),
                             icon: const Icon(
                               Icons.arrow_drop_down_outlined,
@@ -235,8 +236,7 @@ class _DesafioIncluirScreenState extends State<DesafioIncluirScreen> {
                             value: dificuldadeSelected,
                             underline: Container(
                               height: 1,
-                              color: ColorConstants
-                                  .primaryColor, // Altere esta cor para a que você deseja
+                              color: ColorConstants.primaryColor, 
                             ),
                             icon: const Icon(
                               Icons.arrow_drop_down_outlined,
@@ -275,9 +275,9 @@ class _DesafioIncluirScreenState extends State<DesafioIncluirScreen> {
                       width: 350,
                       child: Button(
                         onPressed: () {
-                           Navigator.pushNamed(context, DesafioConteudo.routeName);
+                           Navigator.pushNamed(context, ColunasRelacionadas.routeName);
                         },
-                        textButton: 'Prosseguir'
+                        textButton: 'Acessar minigames'
                       )
                     ),
                   ),

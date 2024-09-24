@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_financas/presentation/screens/login/login_screen.dart';
+import 'package:flutter_financas/presentation/screens/login/login.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+class Splash extends StatelessWidget {
+  const Splash({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class SplashScreen extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {
                       // Navegação através de rotas nomeadas
-                      Navigator.pushNamed(context, LoginScreen.routeName);
+                      Navigator.pushNamed(context, Login.routeName);
                     },
                     child: const SizedBox(
                       width: 275,

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_financas/presentation/screens/cronograma/cronograma_screen.dart';
 
-import 'package:flutter_financas/presentation/screens/tema/tema_screen.dart';
+import 'package:flutter_financas/presentation/screens/cronograma/cronograma.dart';
+import 'package:flutter_financas/presentation/screens/tema/tema.dart';
+
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
 import 'package:flutter_financas/presentation/widgets/app_bar.dart';
 import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
-
 import 'package:flutter_financas/presentation/widgets/ranking.dart';
 
-class HomeScreen extends StatefulWidget {
+class Home extends StatefulWidget {
   static const routeName = '/home';
 
-  const HomeScreen({super.key});
+  const Home({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<Home> createState() => _HomeState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeState extends State<Home> {
 
   // Lista de jogadores com colocação, nome e pontuação (XP)
   final List<Map<String, dynamic>> jogadores = [
@@ -68,8 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
-                                  softWrap: true, // Habilita a quebra automática de linha
-                                  overflow: TextOverflow.visible, // Garante que o texto seja exibido completo, mesmo que ultrapasse o limite
+                                  softWrap: true, 
+                                  overflow: TextOverflow.visible
                                 ),
                               ),
                             ],
@@ -154,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             icon: Icons.schedule,
                             onPressed: () {
                               // Navegação através de rotas nomeadas
-                              Navigator.pushNamed(context, CronogramaScreen.routeName);
+                              Navigator.pushNamed(context, Cronograma.routeName);
                             }
                           ),
                         ),
@@ -174,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             icon: Icons.bookmark_added,
                             onPressed: () {
                               // Navegação através de rotas nomeadas
-                              Navigator.pushNamed(context, TemaScreen.routeName);
+                              Navigator.pushNamed(context, Tema.routeName);
                             }
                           ),
                         ),

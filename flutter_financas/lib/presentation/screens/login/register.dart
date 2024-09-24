@@ -1,41 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_financas/presentation/screens/home/home_screen.dart';
-import 'package:flutter_financas/presentation/screens/login/register_screen.dart';
 
-// Importando widgets
+import 'package:flutter_financas/presentation/screens/login/login.dart';
+
+import 'package:flutter_financas/presentation/themes/colors_constants.dart';
+
+import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 import 'package:flutter_financas/presentation/widgets/input.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/text.dart';
-import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 
-class LoginScreen extends StatelessWidget {
+class Register extends StatelessWidget {
+  
+  static const routeName = '/register';
 
-  static const routeName = '/login';
-
-  const LoginScreen({super.key});
+  const Register({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Row(
+                Container(
+                  margin: const EdgeInsets.all(30.0),
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Center(
-                        child: SizedBox(
-                          width: 275,
-                          height: 275,
-                          child: Image(
-                            image: AssetImage('assets/images/logo_second.png'),
-                          ),
-                        ),
-                      )
-                    ]),
+                      TextTitle(text: 'CRIE SUA CONTA', color: ColorConstants.primaryColor),
+                      TextTitle(text: 'AGORA!', color: ColorConstants.secondColor)
+                    ],
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -45,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                         child: const SizedBox(
                           width: 350,
                           child: Input(
-                            placeholderText: 'Informe seu e-mail',
+                            placeholderText: 'Informe o e-mail',
                           ),
                         ),
                       ),
@@ -61,7 +60,23 @@ class LoginScreen extends StatelessWidget {
                         child: const SizedBox(
                           width: 350,
                           child: Input(
-                            placeholderText: 'Informe sua senha',
+                            placeholderText: 'Informe o username',
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Center(
+                      child: Container(
+                        margin: const EdgeInsets.all(10.0),
+                        child: const SizedBox(
+                          width: 350,
+                          child: Input(
+                            placeholderText: 'Informe a senha',
                             passwordType: true,
                           ),
                         ),
@@ -77,11 +92,8 @@ class LoginScreen extends StatelessWidget {
                       child: SizedBox(
                         width: 350,
                         child: Button(
-                          onPressed: () {
-                            // Navegação através de rotas nomeadas
-                            Navigator.pushNamed(context, HomeScreen.routeName);
-                          },
-                        textButton: 'Login',
+                          onPressed: () {},
+                          textButton: 'Cadastrar',
                         )
                       ),
                     ),
@@ -95,10 +107,14 @@ class LoginScreen extends StatelessWidget {
                       child: GestureDetector(
                         onTap: () {
                           // Navegação através de rotas nomeadas
-                          Navigator.pushNamed(context, RegisterScreen.routeName);
+                          Navigator.pushNamed(
+                            context, Login.routeName
+                          );
                         },
                         child: const Center(
-                          child: TextLink(text: 'Cadastre-se agora'),
+                          child: TextLink(
+                            text: 'Já possuí conta? Faça seu login agora!',
+                          ),
                         ),
                       ),
                     ),

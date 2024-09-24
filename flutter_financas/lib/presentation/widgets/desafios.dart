@@ -3,8 +3,6 @@ import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 
 class RelacionarColunas extends StatefulWidget {
-
-  static const routeName = '/desafio/modelo/colunas';
   
   final List<String> items;
   final List<String> targets;

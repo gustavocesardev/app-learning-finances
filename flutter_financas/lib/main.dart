@@ -1,25 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_financas/presentation/providers/quiz_provider.dart';
 
-import 'package:flutter_financas/presentation/screens/cronograma/calendario_screen.dart';
-import 'package:flutter_financas/presentation/screens/cronograma/cronograma_screen.dart';
-import 'package:flutter_financas/presentation/screens/desafio/conteudo/desafio_incluir_relacionar_colunas.dart';
-import 'package:flutter_financas/presentation/screens/desafio/desafio_incluir_screen.dart';
-import 'package:flutter_financas/presentation/screens/desafio/desafio_incluir_conteudo_screen.dart';
+import 'package:flutter_financas/presentation/screens/splash/splash.dart';
 
-import 'package:flutter_financas/presentation/screens/home/home_screen.dart';
-import 'package:flutter_financas/presentation/screens/splash/splash_screen.dart';
+import 'package:flutter_financas/presentation/screens/home/home.dart';
 
-import 'package:flutter_financas/presentation/screens/login/login_screen.dart';
-import 'package:flutter_financas/presentation/screens/login/register_screen.dart';
+import 'package:flutter_financas/presentation/screens/login/login.dart';
+import 'package:flutter_financas/presentation/screens/login/register.dart';
 
-import 'package:flutter_financas/presentation/screens/tema/tema_incluir_screen.dart';
-import 'package:flutter_financas/presentation/screens/tema/tema_listar_screen.dart';
-import 'package:flutter_financas/presentation/screens/tema/tema_screen.dart';
+import 'package:flutter_financas/presentation/screens/cronograma/calendario.dart';
+import 'package:flutter_financas/presentation/screens/cronograma/cronograma.dart';
+
+import 'package:flutter_financas/presentation/screens/desafio/desafio.dart';
+import 'package:flutter_financas/presentation/screens/desafio/quiz/quiz.dart';
+import 'package:flutter_financas/presentation/screens/desafio/minigames/colunas_relacionadas.dart';
+import 'package:flutter_financas/presentation/screens/desafio/minigames/video.dart';
+
+import 'package:flutter_financas/presentation/screens/tema/tema.dart';
+import 'package:flutter_financas/presentation/screens/tema/listagem.dart';
+import 'package:flutter_financas/presentation/screens/tema/inclusao.dart';
 
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+   runApp(
+    ChangeNotifierProvider(
+      create: (_) => QuizProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -34,23 +44,33 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const SplashScreen(),
+        '/': (context) => const Splash(),
 
-        LoginScreen.routeName: (context) => const LoginScreen(),
-        RegisterScreen.routeName: (context) => const RegisterScreen(),
+        // Login
+        Login.routeName: (context) => const Login(),
+        Register.routeName: (context) => const Register(),
         
-        HomeScreen.routeName: (context) => const HomeScreen(),
-        TemaScreen.routeName: (context) => const TemaScreen(),
+        // Home
+        Home.routeName: (context) => const Home(),
+        Tema.routeName: (context) => const Tema(),
 
-        TemaListagemScreen.routeName: (context) => const TemaListagemScreen(),
-        TemaInclusaoScreen.routeName: (context) => const TemaInclusaoScreen(),
+        // Temas
+        TemaListagem.routeName: (context) => const TemaListagem(),
+        TemaInclusao.routeName: (context) => const TemaInclusao(),
         
-        CronogramaScreen.routeName: (context) => const CronogramaScreen(),
-        CalendarioScreen.routeName: (context) => const CalendarioScreen(),
+        // Cronogramas
+        Cronograma.routeName: (context) => const Cronograma(),
+        Calendario.routeName: (context) => const Calendario(),
 
-        DesafioIncluirScreen.routeName: (context) => const DesafioIncluirScreen(),
-        DesafioConteudo.routeName: (context) => const DesafioConteudo(),
-        IncluirDesafioColunas.routeName: (context) => const IncluirDesafioColunas()
+        // Inclusão de desafios
+        Desafio.routeName: (context) => const Desafio(),
+
+        // Desafios (modelos)
+        ColunasRelacionadas.routeName: (context) => const ColunasRelacionadas(),
+        DesafioVideo.routeName: (context) => const DesafioVideo(),
+
+        // Quiz
+        Quiz.routeName: (context) => const Quiz()
       },
     );
   }

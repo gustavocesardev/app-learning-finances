@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
-import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
+import 'package:flutter_financas/presentation/themes/colors_constants.dart';
+import 'package:flutter_financas/presentation/widgets/app_bar.dart';
+
+import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/desafios.dart';
 
-class DesafioConteudo extends StatefulWidget {
-  static const routeName = '/desafio/incluir/conteudo';
+import 'package:flutter_financas/presentation/screens/desafio/minigames/video.dart';
 
-  const DesafioConteudo({super.key});
+class ColunasRelacionadas extends StatefulWidget {
+  static const routeName = '/desafio/minigame/coluna';
+
+  const ColunasRelacionadas({super.key});
 
   @override
-  State<DesafioConteudo> createState() => _DesafioConteudoState();
+  State<ColunasRelacionadas> createState() => _ColunasRelacionadasState();
 }
 
-class _DesafioConteudoState extends State<DesafioConteudo> {
+class _ColunasRelacionadasState extends State<ColunasRelacionadas> {
   final List<Match> matches = [];
   final List<String> items = [
     'Juros simples',
@@ -45,6 +49,7 @@ class _DesafioConteudoState extends State<DesafioConteudo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const DesafioAppBar(title: 'Relacionar colunas'),
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.only(top: 15),
@@ -57,7 +62,7 @@ class _DesafioConteudoState extends State<DesafioConteudo> {
                   Container(
                     margin: const EdgeInsets.only(top: 20, bottom: 10),
                     child: const Text(
-                      'MODELOS DE CONTEÚDOS DE MINAGAMES!',
+                      'RELACIONE AS PALAVRAS!',
                       style: TextStyle(
                         color: ColorConstants.primaryColor,
                         fontWeight: FontWeight.bold,
@@ -73,14 +78,27 @@ class _DesafioConteudoState extends State<DesafioConteudo> {
                     targets: targets,
                     relacaoAtual: relacaoAtual,
                     relacaoCorreta: relacaoCorreta
-                  )
+                  ),
+                  Center(
+                    child: Container(
+                      margin: const EdgeInsets.all(10.0),
+                      child: SizedBox(
+                        width: 350,
+                        child: Button(
+                          onPressed: () {
+                            Navigator.pushNamed(context, DesafioVideo.routeName);
+                          },
+                          textButton: 'Avançar'
+                        )
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: const CustomNavigationBarHome(),
     );
   }
 }

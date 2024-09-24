@@ -5,18 +5,18 @@ import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/input.dart';
 
-class TemaInclusaoScreen extends StatefulWidget {
+class TemaInclusao extends StatefulWidget {
   static const routeName = '/tema/incluir';
 
-  const TemaInclusaoScreen({super.key});
+  const TemaInclusao({super.key});
 
   @override
-  State<TemaInclusaoScreen> createState() => _TemaInclusaoScreenState();
+  State<TemaInclusao> createState() => _TemaInclusaoState();
 }
 
-class _TemaInclusaoScreenState extends State<TemaInclusaoScreen> {
+class _TemaInclusaoState extends State<TemaInclusao> {
 
-  // Lista de ícones disponíveis
+  /// Lista de ícones disponíveis
   final List<Map<String, dynamic>> _icons = [
     {'nome': 'Alarme', 'icon': Icons.access_alarm},
     {'nome': 'Conta', 'icon': Icons.account_circle},
@@ -31,7 +31,7 @@ class _TemaInclusaoScreenState extends State<TemaInclusaoScreen> {
     {'nome': 'Escola', 'icon': Icons.school},
   ];
 
-  // Ícone selecionado pelo usuário
+  /// Ícone selecionado pelo usuário
   IconData _selectedIcon = Icons.home;
 
   @override

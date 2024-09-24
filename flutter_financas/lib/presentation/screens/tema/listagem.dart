@@ -5,16 +5,16 @@ import 'package:flutter_financas/presentation/widgets/app_bar.dart';
 import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 
-class TemaListagemScreen extends StatefulWidget {
+class TemaListagem extends StatefulWidget {
   static const routeName = '/tema/listagem';
 
-  const TemaListagemScreen({super.key});
+  const TemaListagem({super.key});
 
   @override
-  State<TemaListagemScreen> createState() => _TemaListagemScreenState();
+  State<TemaListagem> createState() => _TemaListagemState();
 }
 
-class _TemaListagemScreenState extends State<TemaListagemScreen> {
+class _TemaListagemState extends State<TemaListagem> {
 
   // Lista de temas e suas respectivas semanas
   final List<Map<String, dynamic>> temas = [
@@ -46,8 +46,8 @@ class _TemaListagemScreenState extends State<TemaListagemScreen> {
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
-                      softWrap: true, // Habilita a quebra automática de linha
-                      overflow: TextOverflow.visible, // Garante que o texto seja exibido completo, mesmo que ultrapasse o limite
+                      softWrap: true,
+                      overflow: TextOverflow.visible,
                     ),
                   ),
                   ListView.builder(

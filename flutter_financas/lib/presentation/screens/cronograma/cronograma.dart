@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_financas/presentation/screens/cronograma/calendario_screen.dart';
-import 'package:flutter_financas/presentation/screens/desafio/desafio_incluir_screen.dart';
+
+import 'package:flutter_financas/presentation/screens/cronograma/calendario.dart';
+import 'package:flutter_financas/presentation/screens/desafio/desafio.dart';
+
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
+
 import 'package:flutter_financas/presentation/widgets/app_bar.dart';
 import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/list.dart';
 
-class CronogramaScreen extends StatefulWidget {
+class Cronograma extends StatefulWidget {
   static const routeName = '/cronograma';
 
-  const CronogramaScreen({super.key});
+  const Cronograma({super.key});
 
   @override
-  State<CronogramaScreen> createState() => _CronogramaScreenState();
+  State<Cronograma> createState() => _CronogramaState();
 }
 
-class _CronogramaScreenState extends State<CronogramaScreen> {
+class _CronogramaState extends State<Cronograma> {
 
   // Lista de cronogramas e suas respectivas semanas
   final List<Map<String, dynamic>> desafios = [
@@ -53,8 +56,8 @@ class _CronogramaScreenState extends State<CronogramaScreen> {
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
-                                softWrap: true, // Habilita a quebra automática de linha
-                                overflow: TextOverflow.visible, // Garante que o texto seja exibido completo, mesmo que ultrapasse o limite
+                                softWrap: true, 
+                                overflow: TextOverflow.visible
                               ),
                             ),
                           ],
@@ -113,7 +116,6 @@ class _CronogramaScreenState extends State<CronogramaScreen> {
                             icon: Icons.bookmark_add,
                             onPressed: () {
                               // Navegação através de rotas nomeadas
-                              
                             }
                           ),
                         ),
@@ -133,7 +135,7 @@ class _CronogramaScreenState extends State<CronogramaScreen> {
                             icon: Icons.bookmark_add,
                             onPressed: () {
                               // Navegação através de rotas nomeadas
-                              Navigator.pushNamed(context, DesafioIncluirScreen.routeName);
+                              Navigator.pushNamed(context, Desafio.routeName);
                             }
                           ),
                         ),
@@ -153,7 +155,7 @@ class _CronogramaScreenState extends State<CronogramaScreen> {
                             icon: Icons.calendar_month,
                             onPressed: () {
                               // Navegação através de rotas nomeadas
-                              Navigator.pushNamed(context, CalendarioScreen.routeName);
+                              Navigator.pushNamed(context, Calendario.routeName);
                             }
                           ),
                         ),

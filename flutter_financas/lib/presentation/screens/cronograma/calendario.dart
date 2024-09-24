@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
+
 import 'package:flutter_financas/presentation/widgets/app_bar.dart';
 import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/list.dart';
 
-class CalendarioScreen extends StatefulWidget {
+class Calendario extends StatefulWidget {
   static const routeName = '/cronograma/calendario';
 
-  const CalendarioScreen({super.key});
+  const Calendario({super.key});
 
   @override
-  State<CalendarioScreen> createState() => _CalendarioScreenState();
+  State<Calendario> createState() => _CalendarioState();
 }
 
-class _CalendarioScreenState extends State<CalendarioScreen> {
+class _CalendarioState extends State<Calendario> {
 
   final List<Map<String, dynamic>> semanas = [
       {
@@ -69,8 +71,8 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
-                      softWrap: true, // Habilita a quebra automática de linha
-                      overflow: TextOverflow.visible, // Garante que o texto seja exibido completo, mesmo que ultrapasse o limite
+                      softWrap: true, 
+                      overflow: TextOverflow.visible,
                     ),
                   ),
                   ListView.builder(
@@ -83,7 +85,7 @@ class _CalendarioScreenState extends State<CalendarioScreen> {
                         child: SizedBox(
                         width: 375,
                         height: 75,
-                        child: Calendario(
+                        child: CalendarioList(
                           onPressed: () {},
                           semana: semanas[index]['semana'],
                           periodo: semanas[index]['periodo'],

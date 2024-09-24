@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_financas/presentation/screens/tema/tema_incluir_screen.dart';
-import 'package:flutter_financas/presentation/screens/tema/tema_listar_screen.dart';
+import 'package:flutter_financas/presentation/screens/tema/inclusao.dart';
+import 'package:flutter_financas/presentation/screens/tema/listagem.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
 import 'package:flutter_financas/presentation/widgets/app_bar.dart';
@@ -9,16 +9,16 @@ import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
 import 'package:flutter_financas/presentation/widgets/button.dart';
 import 'package:flutter_financas/presentation/widgets/list.dart';
 
-class TemaScreen extends StatefulWidget {
+class Tema extends StatefulWidget {
   static const routeName = '/tema';
 
-  const TemaScreen({super.key});
+  const Tema({super.key});
 
   @override
-  State<TemaScreen> createState() => _TemaScreenState();
+  State<Tema> createState() => _TemaState();
 }
 
-class _TemaScreenState extends State<TemaScreen> {
+class _TemaState extends State<Tema> {
 
   // Lista de temas e suas respectivas semanas
   final List<Map<String, dynamic>> temas = [
@@ -55,8 +55,8 @@ class _TemaScreenState extends State<TemaScreen> {
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
-                                softWrap: true, // Habilita a quebra automática de linha
-                                overflow: TextOverflow.visible, // Garante que o texto seja exibido completo, mesmo que ultrapasse o limite
+                                softWrap: true, 
+                                overflow: TextOverflow.visible,
                               ),
                             ),
                           ],
@@ -115,7 +115,7 @@ class _TemaScreenState extends State<TemaScreen> {
                             icon: Icons.bookmark_add,
                             onPressed: () {
                               // Navegação através de rotas nomeadas
-                              Navigator.pushNamed(context, TemaInclusaoScreen.routeName);
+                              Navigator.pushNamed(context, TemaInclusao.routeName);
                             }
                           ),
                         ),
@@ -135,7 +135,7 @@ class _TemaScreenState extends State<TemaScreen> {
                             icon: Icons.menu,
                             onPressed: () {
                               // Navegação através de rotas nomeadas
-                              Navigator.pushNamed(context, TemaListagemScreen.routeName);
+                              Navigator.pushNamed(context, TemaListagem.routeName);
                             }
                           ),
                         ),

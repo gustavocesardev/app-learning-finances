@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_financas/presentation/screens/home/home_screen.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
@@ -32,6 +31,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
 }
 
 class CustomNavigationBarHome extends StatefulWidget {
+
   const CustomNavigationBarHome({super.key});
 
   @override
@@ -39,16 +39,13 @@ class CustomNavigationBarHome extends StatefulWidget {
 }
 
 class _CustomNavigationBarHomeState extends State<CustomNavigationBarHome> {
-   int _selectedIndex = 0;
+
+  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-    });
-
-    if (index == 1) { // Verifica se o ícone de casa foi pressionado
-      Navigator.pushNamed(context, HomeScreen.routeName);
-    }
+    });   
   }
 
   @override
