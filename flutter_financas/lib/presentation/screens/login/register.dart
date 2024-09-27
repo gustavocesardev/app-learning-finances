@@ -4,10 +4,10 @@ import 'package:flutter_financas/presentation/screens/login/login.dart';
 
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
-import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
-import 'package:flutter_financas/presentation/widgets/input.dart';
-import 'package:flutter_financas/presentation/widgets/button.dart';
-import 'package:flutter_financas/presentation/widgets/text.dart';
+import 'package:flutter_financas/presentation/widgets/common/bottom_bar.dart';
+import 'package:flutter_financas/presentation/widgets/common/input.dart';
+import 'package:flutter_financas/presentation/widgets/common/button.dart';
+import 'package:flutter_financas/presentation/widgets/common/text.dart';
 
 class Register extends StatelessWidget {
   

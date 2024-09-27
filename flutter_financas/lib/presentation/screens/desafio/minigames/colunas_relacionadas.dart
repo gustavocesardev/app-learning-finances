@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
-import 'package:flutter_financas/presentation/widgets/app_bar.dart';
+import 'package:flutter_financas/presentation/widgets/common/app_bar.dart';
 
-import 'package:flutter_financas/presentation/widgets/button.dart';
-import 'package:flutter_financas/presentation/widgets/desafios.dart';
+import 'package:flutter_financas/presentation/widgets/common/button.dart';
+import 'package:flutter_financas/presentation/widgets/specific/desafios/desafios.dart';
 
 import 'package:flutter_financas/presentation/screens/desafio/minigames/video.dart';
 

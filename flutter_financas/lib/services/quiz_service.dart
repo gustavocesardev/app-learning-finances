@@ -1,13 +1,13 @@
-import 'package:flutter_financas/model/quiz_question.dart';
+import 'package:flutter_financas/model/quiz_pergunta.dart';
 
 /// Service que recupera, e estrutura, as perguntas do quiz do aplicativo
-/// @see [QuizQuestion] Model da estrutura de dados das perguntas do quiz
+/// @see [QuizPergunta] Model da estrutura de dados das perguntas do quiz
 /// @see [QuizProvider] Provider que utuiliza o Service para definir os estados do quiz
 class QuizService {
   
-  List<QuizQuestion> getQuizQuestions() {
+  List<QuizPergunta> getQuizQuestions() {
     return [
-      QuizQuestion(
+      QuizPergunta(
         pergunta: 'Qual o nome do rendimento que possuí as regras de rendimento bem definidas antes da aplicação do capital?',
         alternativas: [
           {'A': 'Renda variável'},
@@ -17,7 +17,7 @@ class QuizService {
         ],
         alternativaCorreta: 'B',
       ),
-      QuizQuestion(
+      QuizPergunta(
         pergunta: 'Qual dos investimentos abaixo é um exemplo de renda variável?',
         alternativas: [
           {'A': 'Ações'},
@@ -27,7 +27,7 @@ class QuizService {
         ],
         alternativaCorreta: 'A',
       ),
-      QuizQuestion(
+      QuizPergunta(
         pergunta: 'Qual tipo de investimento é considerado o mais seguro?',
         alternativas: [
           {'A': 'Ações'},
@@ -37,7 +37,7 @@ class QuizService {
         ],
         alternativaCorreta: 'C',
       ),
-      QuizQuestion(
+      QuizPergunta(
         pergunta: 'O que significa a sigla CDI no mercado financeiro?',
         alternativas: [
           {'A': 'Certificado de Depósito de Investimento'},
@@ -47,7 +47,7 @@ class QuizService {
         ],
         alternativaCorreta: 'B',
       ),
-      QuizQuestion(
+      QuizPergunta(
         pergunta: 'Qual investimento possui maior liquidez?',
         alternativas: [
           {'A': 'Ações'},
@@ -57,7 +57,7 @@ class QuizService {
         ],
         alternativaCorreta: 'C',
       ),
-      QuizQuestion(
+      QuizPergunta(
         pergunta: 'Qual é o principal objetivo de um fundo de investimento?',
         alternativas: [
           {'A': 'Diversificar riscos'},
@@ -67,7 +67,7 @@ class QuizService {
         ],
         alternativaCorreta: 'A',
       ),
-      QuizQuestion(
+      QuizPergunta(
         pergunta: 'Qual é o órgão responsável por regulamentar o mercado de capitais no Brasil?',
         alternativas: [
           {'A': 'BACEN'},
@@ -77,7 +77,7 @@ class QuizService {
         ],
         alternativaCorreta: 'C',
       ),
-      QuizQuestion(
+      QuizPergunta(
         pergunta: 'Qual é a característica principal de um CDB?',
         alternativas: [
           {'A': 'Baixa liquidez'},
@@ -87,7 +87,7 @@ class QuizService {
         ],
         alternativaCorreta: 'B',
       ),
-      QuizQuestion(
+      QuizPergunta(
         pergunta: 'Qual dos investimentos abaixo é isento de Imposto de Renda para pessoa física?',
         alternativas: [
           {'A': 'LCI'},
@@ -97,7 +97,7 @@ class QuizService {
         ],
         alternativaCorreta: 'A',
       ),
-      QuizQuestion(
+      QuizPergunta(
         pergunta: 'O que significa a sigla IPCA, usada no mercado de investimentos?',
         alternativas: [
           {'A': 'Índice de Preço ao Consumidor Amplo'},

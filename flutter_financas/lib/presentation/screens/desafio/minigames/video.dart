@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_financas/presentation/screens/desafio/quiz/quiz.dart';
 
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
-import 'package:flutter_financas/presentation/widgets/app_bar.dart';
+import 'package:flutter_financas/presentation/widgets/common/app_bar.dart';
 
-import 'package:flutter_financas/presentation/widgets/button.dart';
+import 'package:flutter_financas/presentation/widgets/common/button.dart';
 
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 

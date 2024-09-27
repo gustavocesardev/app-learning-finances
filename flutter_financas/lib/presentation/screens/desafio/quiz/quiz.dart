@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_financas/presentation/providers/quiz_provider.dart';
+import 'package:flutter_financas/presentation/screens/desafio/quiz/quiz_resultado.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
-import 'package:flutter_financas/presentation/widgets/app_bar.dart';
-import 'package:flutter_financas/presentation/widgets/button.dart';
-import 'package:flutter_financas/presentation/widgets/quiz_option.dart';
+import 'package:flutter_financas/presentation/widgets/common/app_bar.dart';
+import 'package:flutter_financas/presentation/widgets/common/button.dart';
+import 'package:flutter_financas/presentation/widgets/specific/desafios/quiz/quiz_option.dart';
 
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,7 @@ class Quiz extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final quizProvider = Provider.of<QuizProvider>(context);
+    QuizProvider quizProvider = Provider.of<QuizProvider>(context);
 
     return Scaffold(
       appBar: const DesafioAppBar(title: 'Quiz'),
@@ -71,7 +72,22 @@ class Quiz extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 40),
                   child: Button(
                     onPressed: () {
+
                       quizProvider.responderPergunta();
+                      
+                      if ((quizProvider.acertos + quizProvider.erros) == quizProvider.quiz.length) {
+                        // Quando o QUIZ é concluido, o provider é resetado
+                        quizProvider.acertos = 0;
+                        quizProvider.erros = 0;
+                        quizProvider.numeroPerguntaAtual = 0;
+                        quizProvider.alternativaSelecionada = '';
+
+                        Navigator.pushNamed(
+                          context,
+                          QuizResultado.routeName,
+                          arguments: quizProvider.arguments
+                        );
+                      }
                     },
                     textButton: quizProvider.numeroPerguntaAtual < quizProvider.quiz.length - 1 ? 'Próxima' : 'Concluir',
                   ),

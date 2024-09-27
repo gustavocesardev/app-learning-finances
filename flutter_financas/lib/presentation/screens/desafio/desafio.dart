@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_financas/presentation/screens/desafio/minigames/colunas_relacionadas.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
-import 'package:flutter_financas/presentation/widgets/app_bar.dart';
-import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
-import 'package:flutter_financas/presentation/widgets/button.dart';
-import 'package:flutter_financas/presentation/widgets/input.dart';
+import 'package:flutter_financas/presentation/widgets/common/app_bar.dart';
+import 'package:flutter_financas/presentation/widgets/common/bottom_bar.dart';
+import 'package:flutter_financas/presentation/widgets/common/button.dart';
+import 'package:flutter_financas/presentation/widgets/common/input.dart';
 
 class Desafio extends StatefulWidget {
   static const routeName = '/desafio/incluir';
@@ -275,9 +273,9 @@ class _DesafioState extends State<Desafio> {
                       width: 350,
                       child: Button(
                         onPressed: () {
-                           Navigator.pushNamed(context, ColunasRelacionadas.routeName);
+                          
                         },
-                        textButton: 'Acessar minigames'
+                        textButton: 'Adicionar conteúdos'
                       )
                     ),
                   ),

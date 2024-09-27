@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_financas/model/quiz_question.dart';
+import 'package:flutter_financas/model/quiz_pergunta.dart';
 import 'package:flutter_financas/services/quiz_service.dart';
 
 /// Service que recupera, e estrutura, as perguntas do quiz do aplicativo
-/// @see [QuizQuestion] 
+/// @see [QuizPergunta] 
 /// @see [QuizService] 
 class QuizProvider with ChangeNotifier {
   
-  late List<QuizQuestion> quiz;
+  late List<QuizPergunta> quiz;
+  Arguments arguments = Arguments(0, 0, 0);
 
   String alternativaSelecionada = '';
 
@@ -19,6 +20,7 @@ class QuizProvider with ChangeNotifier {
   QuizProvider() {
     /// Recuperando, através do QuizService, a lista de perguntas do quiz.
     quiz = QuizService().getQuizQuestions();
+    arguments.totalPerguntas = quiz.length;
   }
 
   void responderPergunta() {
@@ -36,7 +38,11 @@ class QuizProvider with ChangeNotifier {
       alternativaSelecionada = '';
       /// Notificando os ouvintes da mudança de estado.
       notifyListeners();
-    }
+    } 
+
+    // Atualizando classe de argumentos
+    arguments.totalAcertos = acertos;
+    arguments.totalErros = erros;
   }
 
   void selecionarAlternativa(String option) {
@@ -44,4 +50,16 @@ class QuizProvider with ChangeNotifier {
     /// Notificando os ouvintes da mudança de estado.
     notifyListeners();
   }
+}
+
+class Arguments {
+  int? totalAcertos;
+  int? totalErros;
+  int? totalPerguntas;
+
+  Arguments(
+    this.totalAcertos,
+    this.totalErros,
+    this.totalPerguntas
+  );
 }

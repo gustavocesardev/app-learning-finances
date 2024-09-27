@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
-import 'package:flutter_financas/presentation/widgets/app_bar.dart';
-import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
-import 'package:flutter_financas/presentation/widgets/button.dart';
-import 'package:flutter_financas/presentation/widgets/list.dart';
+import 'package:flutter_financas/presentation/widgets/common/app_bar.dart';
+import 'package:flutter_financas/presentation/widgets/common/bottom_bar.dart';
+import 'package:flutter_financas/presentation/widgets/common/button.dart';
+import 'package:flutter_financas/presentation/widgets/common/list.dart';
 
 class Calendario extends StatefulWidget {
   static const routeName = '/cronograma/calendario';

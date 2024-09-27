@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_financas/presentation/screens/cronograma/cronograma.dart';
+import 'package:flutter_financas/presentation/screens/desafio/minigames/colunas_relacionadas.dart';
 import 'package:flutter_financas/presentation/screens/tema/tema.dart';
 
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
-import 'package:flutter_financas/presentation/widgets/app_bar.dart';
-import 'package:flutter_financas/presentation/widgets/bottom_bar.dart';
-import 'package:flutter_financas/presentation/widgets/button.dart';
-import 'package:flutter_financas/presentation/widgets/ranking.dart';
+import 'package:flutter_financas/presentation/widgets/common/app_bar.dart';
+import 'package:flutter_financas/presentation/widgets/common/bottom_bar.dart';
+import 'package:flutter_financas/presentation/widgets/common/button.dart';
+import 'package:flutter_financas/presentation/widgets/common/ranking.dart';
 
 class Home extends StatefulWidget {
   static const routeName = '/home';
@@ -62,7 +63,7 @@ class _HomeState extends State<Home> {
                               Container(
                                 margin: const EdgeInsets.only(left: 20),
                                 child: const Text(
-                                  'SEGUROS E PROTEÇÃO FINANCEIRA',
+                                  'PRIMEIROS PASSOS COM INVESTIMENTOS',
                                   style: TextStyle(
                                     color: ColorConstants.thirdColor,
                                     fontWeight: FontWeight.bold,
@@ -153,7 +154,6 @@ class _HomeState extends State<Home> {
                             textButton: 'GERENCIAR CRONOGRAMA',
                             icon: Icons.schedule,
                             onPressed: () {
-                              // Navegação através de rotas nomeadas
                               Navigator.pushNamed(context, Cronograma.routeName);
                             }
                           ),
@@ -173,8 +173,26 @@ class _HomeState extends State<Home> {
                             textButton: 'GERENCIAR TEMAS',
                             icon: Icons.bookmark_added,
                             onPressed: () {
-                              // Navegação através de rotas nomeadas
                               Navigator.pushNamed(context, Tema.routeName);
+                            }
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(top: 10, bottom: 10),
+                        child: SizedBox(
+                          width: 375,
+                          height: 75,
+                          child: LargeButtonWithIcon(
+                            textButton: 'SIMULAR DESAFIO',
+                            icon: Icons.smartphone,
+                            onPressed: () {
+                              Navigator.pushNamed(context, ColunasRelacionadas.routeName);
                             }
                           ),
                         ),

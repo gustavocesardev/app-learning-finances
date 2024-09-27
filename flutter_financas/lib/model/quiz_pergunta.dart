@@ -1,6 +1,6 @@
 /// Classe que representa uma pergunta do Quiz do 
 /// @see [QuizService] Utiliza o model para definir a estrutura das perguntas recuperadas via service.
-class QuizQuestion {
+class QuizPergunta {
 
   /// Descrição/Enunciado da pergunta
   final String pergunta;
@@ -12,7 +12,7 @@ class QuizQuestion {
   /// Chave da alternativa correta
   final String alternativaCorreta;
 
-  QuizQuestion({
+  QuizPergunta({
     required this.pergunta,
     required this.alternativas,
     required this.alternativaCorreta,

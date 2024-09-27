@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
-import 'package:flutter_financas/presentation/widgets/button.dart';
+import 'package:flutter_financas/presentation/widgets/common/button.dart';
 
 class RelacionarColunas extends StatefulWidget {
   
