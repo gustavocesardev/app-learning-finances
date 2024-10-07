@@ -179,36 +179,20 @@ class _DesafioState extends State<Desafio> {
                         margin: const EdgeInsets.all(10.0),
                         child: SizedBox(
                           width: 350,
-                          child: DropdownButton<String>(
-                            isExpanded: true,
+                          child: CustomDropdownInput(
                             value: semanaSelected,
-                            underline: Container(
-                              height: 1,
-                              color: ColorConstants.primaryColor,
-                            ),
-                            icon: const Icon(
-                              Icons.arrow_drop_down_outlined,
-                              color: ColorConstants.primaryColor,
-                            ),
-                            iconSize: 24,
-                            elevation: 16,
-                            style: const TextStyle(color: Color.fromRGBO(75, 145, 91, 1)),
+                            items: semanas.map((semana) {
+                              return {
+                                'id': semana['id'],
+                                'name': semana['periodo']
+                              };
+                            }).toList(),
                             onChanged: (String? newValue) {
                               setState(() {
                                 semanaSelected = newValue!;
                               });
                             },
-                            items: semanas.map<DropdownMenuItem<String>>(
-                              (Map<String, dynamic> semana) {
-                              return DropdownMenuItem<String>(
-                                value: semana['id'],
-                                child: Row(
-                                  children: [
-                                    Text('Semana ${semana['id']} - ${semana['periodo']}'),
-                                  ],
-                                ),
-                              );
-                            }).toList(),
+                            hintText: 'Selecione a semana',
                           ),
                         ),
                       ),
@@ -229,37 +213,20 @@ class _DesafioState extends State<Desafio> {
                         margin: const EdgeInsets.all(10.0),
                         child: SizedBox(
                           width: 350,
-                          child: DropdownButton<String>(
-                            isExpanded: true,
+                          child: CustomDropdownInput(
                             value: dificuldadeSelected,
-                            underline: Container(
-                              height: 1,
-                              color: ColorConstants.primaryColor, 
-                            ),
-                            icon: const Icon(
-                              Icons.arrow_drop_down_outlined,
-                              color: ColorConstants.primaryColor,
-                            ),
-                            iconSize: 24,
-                            elevation: 16,
-                            style: const TextStyle(
-                                color: Color.fromRGBO(75, 145, 91, 1)),
+                            items: dificuldades.map((dificuldade) {
+                              return {
+                                'id': dificuldade['nivel'],
+                                'name': dificuldade['tipo']
+                              };
+                            }).toList(),
                             onChanged: (String? newValue) {
                               setState(() {
                                 dificuldadeSelected = newValue!;
                               });
                             },
-                            items: dificuldades.map<DropdownMenuItem<String>>(
-                              (Map<String, dynamic> dificuldade) {
-                              return DropdownMenuItem<String>(
-                                value: dificuldade['nivel'],
-                                child: Row(
-                                  children: [
-                                    Text(dificuldade['tipo']),
-                                  ],
-                                ),
-                              );
-                            }).toList(),
+                            hintText: 'Selecione a dificuldade',
                           ),
                         ),
                       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_financas/presentation/screens/cronograma/calendario.dart';
 import 'package:flutter_financas/presentation/screens/desafio/desafio.dart';
+import 'package:flutter_financas/presentation/screens/semana/selecionar_semana.dart';
 
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
@@ -115,7 +116,7 @@ class _CronogramaState extends State<Cronograma> {
                             textButton: 'PROGRAMAR NOVA SEMANA',
                             icon: Icons.bookmark_add,
                             onPressed: () {
-                              // Navegação através de rotas nomeadas
+                               Navigator.pushNamed(context, SelecionarSemanaScreen.routeName);
                             }
                           ),
                         ),

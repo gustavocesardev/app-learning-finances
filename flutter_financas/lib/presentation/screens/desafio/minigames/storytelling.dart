@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_financas/presentation/providers/storytelling_provider.dart';
+import 'package:flutter_financas/presentation/providers/storytelling.dart';
+import 'package:flutter_financas/presentation/screens/desafio/quiz/quiz.dart';
+import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 import 'package:flutter_financas/presentation/widgets/common/app_bar.dart';
 import 'package:flutter_financas/presentation/widgets/common/button.dart';
 import 'package:provider/provider.dart';
@@ -44,6 +46,20 @@ class _StorytellingState extends State<Storytelling> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 20, bottom: 10),
+                    child: const Text(
+                      'O que é educação financeira?',
+                      style: TextStyle(
+                        color: ColorConstants.primaryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                      overflow: TextOverflow.visible,
+                    ),
+                  ),
                   Column(
                     children: storytellingProvider.widgetsList,
                   ),
@@ -60,18 +76,25 @@ class _StorytellingState extends State<Storytelling> {
               width: double.infinity,
               child: Button(
                 onPressed: () {
-                  storytellingProvider.adicionarProximoDialogo();
 
-                  // Aguarda um breve momento antes de fazer o scroll suave
-                  WidgetsBinding.instance.addPostFrameCallback((_) {
-                    _scrollController.animateTo(
-                      _scrollController.position.maxScrollExtent,
-                      duration: const Duration(milliseconds: 500), // Duração da animação
-                      curve: Curves.easeInOut, // Curva suave para a rolagem
-                    );
-                  });
+                  if (!storytellingProvider.isStorytellingFinished()) {
+
+                    storytellingProvider.adicionarProximoDialogo();
+
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      _scrollController.animateTo(
+                        _scrollController.position.maxScrollExtent,
+                        duration: const Duration(milliseconds: 500), 
+                        curve: Curves.easeInOut,
+                      );
+                    });
+
+                    return;
+                  }
+
+                  Navigator.pushNamed(context, Quiz.routeName);
                 },
-                textButton: 'Continuar',
+                textButton: storytellingProvider.isStorytellingFinished() ? 'Próximo' : 'Continuar',
               ),
             ),
           ),

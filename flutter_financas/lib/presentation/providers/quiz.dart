@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_financas/model/quiz_pergunta.dart';
-import 'package:flutter_financas/services/quiz_service.dart';
+import 'package:flutter_financas/services/quiz.dart';
 
 /// Service que recupera, e estrutura, as perguntas do quiz do aplicativo
 /// @see [QuizPergunta] 

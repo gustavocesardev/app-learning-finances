@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_financas/presentation/providers/quiz_provider.dart';
+import 'package:flutter_financas/presentation/providers/quiz.dart' as provider;
 import 'package:flutter_financas/presentation/screens/desafio/quiz/quiz_resultado.dart';
 import 'package:flutter_financas/presentation/themes/colors_constants.dart';
 
@@ -17,7 +17,7 @@ class Quiz extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuizProvider quizProvider = Provider.of<QuizProvider>(context);
+    provider.QuizProvider quizProvider = Provider.of<provider.QuizProvider>(context);
 
     return Scaffold(
       appBar: const DesafioAppBar(title: 'Quiz'),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_financas/services/storytelling_service.dart' as service;
+import 'package:flutter_financas/services/storytelling.dart' as service;
 import 'package:flutter_financas/model/storytelling_dialogo.dart' as model;
 import 'package:flutter_financas/presentation/widgets/specific/desafios/storytelling/storytelling_dialogo.dart' as widget;
 
@@ -33,5 +33,10 @@ class StorytellingProvider with ChangeNotifier {
 
     // Notificando os ouvintes da mudança de estado
     notifyListeners();
+  }
+
+  bool isStorytellingFinished() {
+
+    return indiceDialogo == dialogos.length;
   }
 }
