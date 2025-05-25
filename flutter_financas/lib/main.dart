@@ -1,125 +1,105 @@
+// ignore_for_file: library_prefixes
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:flutter_financas/presentation/themes/colors_constants.dart';
+
+// Definindo Providers do projeto
+import 'package:flutter_financas/presentation/providers/quiz.dart' as quizProvider;
+import 'package:flutter_financas/presentation/providers/tema_provider.dart' as temaProvider;
+import 'package:flutter_financas/presentation/providers/semana.dart' as semanaProvider;
+import 'package:flutter_financas/presentation/providers/colunas_relacionadas.dart' as colunasProvider;
+import 'package:flutter_financas/presentation/providers/storytelling.dart' as storytellingProvider;
+
+// Definindo Screens do projeto
+import 'package:flutter_financas/presentation/screens/splash/splash.dart' as splashScreen;
+import 'package:flutter_financas/presentation/screens/home/home.dart' as homeScreen;
+
+import 'package:flutter_financas/presentation/screens/login/login.dart' as loginScreen;
+import 'package:flutter_financas/presentation/screens/login/register.dart' as registerScreen;
+
+import 'package:flutter_financas/presentation/screens/tema/tema.dart' as temaScreen;
+import 'package:flutter_financas/presentation/screens/tema/listagem.dart' as temaListagemScreen;
+import 'package:flutter_financas/presentation/screens/tema/inclusao.dart' as temaInclusaoScreen;
+
+import 'package:flutter_financas/presentation/screens/cronograma/calendario.dart' as calendarioScreen;
+import 'package:flutter_financas/presentation/screens/cronograma/cronograma.dart' as cronogramaScreen;
+
+import 'package:flutter_financas/presentation/screens/semana/selecionar_semana.dart' as selecionarSemanaScreen;
+import 'package:flutter_financas/presentation/screens/semana/selecionar_tema.dart' as selecionarTemaScreen;
+
+import 'package:flutter_financas/presentation/screens/desafio/desafio.dart' as desafioScreen;
+
+import 'package:flutter_financas/presentation/screens/desafio/minigames/storytelling.dart' as storytellingScreen;
+import 'package:flutter_financas/presentation/screens/desafio/minigames/colunas_relacionadas.dart' as screenColunas;
+
+import 'package:flutter_financas/presentation/screens/desafio/quiz/quiz.dart' as quizScreen;
+import 'package:flutter_financas/presentation/screens/desafio/quiz/quiz_resultado.dart' as quizResultadoScreen;
+
+import 'package:flutter_financas/presentation/screens/desafio/minigames/video.dart' as videoScreen;
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => quizProvider.QuizProvider()),
+        ChangeNotifierProvider(create: (_) => colunasProvider.ColunasRelacionadas()),
+        ChangeNotifierProvider(create: (_) => storytellingProvider.StorytellingProvider()),
+        ChangeNotifierProvider(create: (_) => semanaProvider.SemanaProvider()),
+        ChangeNotifierProvider(create: (_) => temaProvider.TemaProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Learning finances',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primaryColor: ColorConstants.primaryColor,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const splashScreen.Splash(),
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+        // Login
+        loginScreen.Login.routeName: (context) => const loginScreen.Login(),
+        registerScreen.Register.routeName: (context) => const registerScreen.Register(),
+        
+        // Home
+        homeScreen.Home.routeName: (context) => const homeScreen.Home(),
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+        // Temas
+        temaScreen.Tema.routeName: (context) => const temaScreen.Tema(),
+        temaListagemScreen.TemaListagem.routeName: (context) => const temaListagemScreen.TemaListagem(),
+        temaInclusaoScreen.TemaInclusao.routeName: (context) => const temaInclusaoScreen.TemaInclusao(),
+        
+        // Cronogramas
+        cronogramaScreen.Cronograma.routeName: (context) => const cronogramaScreen.Cronograma(),
+        calendarioScreen.Calendario.routeName: (context) => const calendarioScreen.Calendario(),
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+        // Inclusão de desafios
+        desafioScreen.Desafio.routeName: (context) => const desafioScreen.Desafio(),
 
-  final String title;
+        // Inclusao de semanas
+        selecionarSemanaScreen.SelecionarSemanaScreen.routeName: (context) => const selecionarSemanaScreen.SelecionarSemanaScreen(),
+        selecionarTemaScreen.SelecionarTemaScreen.routeName: (context) => const selecionarTemaScreen.SelecionarTemaScreen(),
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+        // Desafios (modelos)
+        screenColunas.ColunasRelacionadas.routeName: (context) => const screenColunas.ColunasRelacionadas(),
+        videoScreen.Video.routeName: (context) => const videoScreen.Video(),
+        storytellingScreen.Storytelling.routeName: (context) => const storytellingScreen.Storytelling(),
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        // Quiz
+        quizScreen.Quiz.routeName: (context) => const quizScreen.Quiz(),
+        quizResultadoScreen.QuizResultado.routeName: (context) => const quizResultadoScreen.QuizResultado(),
+      },
     );
   }
 }

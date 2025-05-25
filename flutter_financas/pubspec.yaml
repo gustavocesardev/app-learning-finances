@@ -30,6 +30,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  intl: ^0.18.0
+  provider: ^5.0.0
+  http: ^0.13.0
+  shared_preferences: ^2.0.0
+  get_it: ^7.0.0
+  injectable: ^1.5.0
+  youtube_player_flutter: ^8.1.2
+  table_calendar: ^3.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -39,6 +47,16 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.1.0
+  injectable_generator: ^1.5.0
+  flutter_launcher_icons: ^0.10.0
+  flutter_lints: ^3.0.0 
+
+# Adicione a configuração do flutter_icons aqui
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/finances.png" 
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -62,6 +80,11 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+
+  assets:
+    - assets/images/logo.png
+    - assets/images/logo_second.png
+    - assets/images/finances.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
